@@ -4,9 +4,15 @@ from extensions186 import ChangeException, Change
 
 bot = telebot.TeleBot(TOKEN)
 
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start'])
 def help(message: telebot.types.Message):
     text = 'Привет! Я могу:\nПоказать список доступных валют: /values\nСконвертировать валюты по команде:\n' \
+'<имя валюты> <в какую валюту перевести> <количество переводимой валюты>\nНапомнить, что я могу: /help'
+    bot.reply_to(message, text)
+    
+@bot.message_handler(commands=['help'])
+def help(message: telebot.types.Message):
+    text = 'Я могу:\nПоказать список доступных валют: /values\nСконвертировать валюты по команде:\n' \
 '<имя валюты> <в какую валюту перевести> <количество переводимой валюты>\nНапомнить, что я могу: /help'
     bot.reply_to(message, text)
 
