@@ -13,7 +13,7 @@ def help(message: telebot.types.Message):
 @bot.message_handler(commands=['help'])
 def help(message: telebot.types.Message):
     text = 'Я могу:\nПоказать список доступных валют: /values\nСконвертировать валюты по команде:\n' \
-'<имя валюты> <в какую валюту перевести> <количество переводимой валюты>\nНапомнить, что я могу: /help'
+'<имя валюты> <в какую валюту перевести> <количество переводимой валюты>'
     bot.reply_to(message, text)
 
 @bot.message_handler(commands=['values'])
