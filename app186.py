@@ -28,7 +28,8 @@ def get_price(message: telebot.types.Message):
     try:
         values = message.text.split(' ')
         if len(values) != 3:
-            raise ChangeException('Слишком много параметров')
+            raise ChangeException('Мало или много параметров. Введите 3 параметра:\n' \
+'<имя валюты> <в какую валюту перевести> <количество переводимой валюты>')
         quote, base, amount = values
         total_base = Change.get_price(base, quote, amount)
     except ChangeException as e:
